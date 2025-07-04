@@ -6,6 +6,12 @@
 - élimine le besoin du _constant polling_.
 - mode **push** (mode principal) : Event Grid informe les souscripteurs de l'événement.
 - **Topic** : ensemble d'événements liés. Une souscription s'enregistre auprès d'un topic.
+- Durabilité :
+  - Retry schedule : choix entre retenter, dead-letter ou drop le message.
+  - Retry policy : nombre maximum de tentatives, TTL.
+  - Delayed delivery : en cas d'échec, il retente plus tard.
+  - Dead-letter events : si le message n'a pu être délivré, il est envoyé dans un storage account.
+  - Order : pas de garanti d'ordre.
 
 <hr/>
 
