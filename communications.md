@@ -9,12 +9,13 @@ Voici un comparatif clair des trois services Azure pour bien choisir selon vos b
   🔀 Modèle **push**, sans serveur, utilisé pour détecter des changements (fichiers blobs, VM, etc.).
   🔄 Livraison “at least once”, **sans garantie d’ordre**. ([learn.microsoft.com][1])
 
-* \*\*Azure Event Hubs\*\*
+* **Azure Event Hubs**
   🚀 *Streaming haute performance* — ingestion de flux massifs (télémétrie, logs).
   ⏩ Modèle **pull**, partitionné, faible latence, relecture possible (retention configurable).
   ⚙️ Livraison “at least once”, ordre **garanti par partition**, très haut débit (millions d’événements/s). ([learn.microsoft.com][1], [laganlabs.it][2])
 
-* \*\*Azure Service Bus\*\*
+* **Azure Service Bus**
+
   🏢 *Messagerie d’entreprise fiable* — queues & topics avec transactions, sessions.
   📥 Modèle **pull** (polling ou long-poll), avec contrôle sur le déverrouillage des messages.
   ✅ Livraison “at least once”, prise en charge du **FIFO**, du filtrage, de la déduplication, du dead‑lettering. ([learn.microsoft.com][1])
