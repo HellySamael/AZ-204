@@ -12,6 +12,10 @@
   - Delayed delivery : en cas d'échec, il retente plus tard.
   - Dead-letter events : si le message n'a pu être délivré, il est envoyé dans un storage account.
   - Order : pas de garanti d'ordre.
+- Filtrage d'événements :
+  - Par event type
+  - Par subject
+  - Filtre avancé
 
 <hr/>
 
