@@ -101,3 +101,7 @@
   - Vérifier consommation RU, configurer alertes.
   - Analyser cas d’usage réels (multi-master, SLA, requêtes complexes).
 
+## 📚 Resources
+- [Introduction à Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction)
+- [Choisir une clé de partition](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview#choose-your-partition-key)
+
