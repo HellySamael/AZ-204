@@ -77,6 +77,10 @@ Voici une fiche de révision bien pep’s 😊 pour **Azure Event Hubs**, parfai
 
 Bonne révision ! 🎯 Si tu veux approfondir un point ou avoir un quiz Event Hubs, dis-moi 😉
 
+## 📚 Resources
+- [Présentation d’Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Guide de démarrage Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+
 [1]: https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about?utm_source=chatgpt.com "Azure Event Hubs: Data streaming platform with Kafka support - Azure Event Hubs | Microsoft Learn"
 [2]: https://azure.microsoft.com/fr-fr/products/event-hubs/?utm_source=chatgpt.com "Event Hubs – Ingestion de données en temps réel | Microsoft Azure"
 [3]: https://www.observo.ai/post/observability-101-guide-to-azure-event-hubs?utm_source=chatgpt.com "Observability 101: A Guide to Azure Event Hubs"

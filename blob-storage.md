@@ -71,4 +71,7 @@ Principales options de réplication :
 - Configurer la sécurité : Shared Key, SAS, User Delegation.
 - Utiliser Static Website + CDN pour HTTPS custom domain.
 - Mémoire des tailles limites blob.
+## 📚 Resources
+- [Introduction à Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+- [Comparaison des options de redondance](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
 

@@ -131,6 +131,10 @@ Les objectifs de l’examen incluent :
 
 Si tu veux approfondir avec un exemple pratique ou un tutoriel CLI/SDK, je peux t’en préparer un avec plaisir !
 
+## 📚 Resources
+- [Présentation d’Azure Event Grid](https://learn.microsoft.com/azure/event-grid/overview)
+- [Guides de démarrage Azure Event Grid](https://learn.microsoft.com/azure/event-grid/custom-event-quickstart)
+
 [1]: https://learn.microsoft.com/fr-fr/azure/event-grid/overview?utm_source=chatgpt.com "Présentation d’Azure Event Grid - Azure Event Grid | Microsoft Learn"
 [2]: https://docs.azure.cn/en-us/event-grid/overview?utm_source=chatgpt.com "Introduction to Azure Event Grid - Azure Event Grid | Azure Docs"
 [3]: https://learn.microsoft.com/en-us/azure//event-grid/overview?utm_source=chatgpt.com "Overview - Azure Event Grid | Microsoft Learn"

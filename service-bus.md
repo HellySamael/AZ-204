@@ -1,4 +1,4 @@
-# Services Bus
+# Service Bus
 
 Voici ta fiche de révision sur **Azure Service Bus** pour l’examen **AZ‑204**, avec smileys et explications claires 😊:
 
@@ -110,6 +110,10 @@ Voici ta fiche de révision sur **Azure Service Bus** pour l’examen **AZ‑204
 ---
 
 Besoin d’un exemple de code, d’un script CLI, ou d’un schéma ? Je suis là pour t’aider ! 😊
+
+## 📚 Resources
+- [Documentation Service Bus](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview)
+- [Comparer les services de messagerie Azure](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services)
 
 [1]: https://marabesi.com/azure/204/6-connect-and-consume-services.html?utm_source=chatgpt.com "AZ-204 Developer Associate: Navigating Azure Service Connectivity and Consumption"
 [2]: https://www.hugobarona.com/az-204-study-guide?utm_source=chatgpt.com "Microsoft Certified: Azure Developer Associate (AZ-204) Study Guide - Hugo Barona"

@@ -58,6 +58,9 @@ Souvent, on les utilise **ensemble** pour tirer parti du meilleur de chacun.
 
 Besoin d’un exemple concret ou d’un diagramme d’architecture ? Je peux t’aider 📐
 
+## 📚 Resources
+- [Comparer les services de messagerie Azure](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services)
+
 [1]: https://learn.microsoft.com/fr-fr/azure/service-bus-messaging/compare-messaging-services?utm_source=chatgpt.com "Comparer les services de messagerie Azure - Azure Service Bus | Microsoft Learn"
 [2]: https://www.laganlabs.it/event-hub-iot-hub-and-event-grids/?utm_source=chatgpt.com "Service bus, Event hub, IoT hub and event grids."
 [3]: https://www.reddit.com/r/AZURE/comments/xwh5xs?utm_source=chatgpt.com "Confused when to use Event Grid, Event Hub and Service Hub"

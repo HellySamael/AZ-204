@@ -99,3 +99,6 @@ New-AzKeyVault -Name ... -EnableSoftDelete -EnablePurgeProtection
 - Explorer les SDK : .NET, Python, Java, etc.
 - Consulter les guides GitHub comme arvigeus/AZ-204 Key Vault.
 
+## 📚 Resources
+- [Présentation d’Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)
+- [Tutoriel Key Vault avec Azure CLI](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli)
