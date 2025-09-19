@@ -75,3 +75,80 @@ Principales options de réplication :
 - [Introduction à Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 - [Comparaison des options de redondance](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
 
+# Récapitulatif – Azure Storage (AZ-204)
+
+## 1. Blob Storage
+- **Types de blobs** :
+  - **Block Blob** : fichiers classiques (images, vidéos, documents, backups).
+  - **Append Blob** : logs append-only (journalisation).
+  - **Page Blob** : stockage aléatoire en pages, utilisé pour disques Azure.
+- **Containers et accès** :
+  - Private, Blob (public read blobs), Container (public read + listing).
+  - Accès recommandé via SAS ou Azure AD, pas via clé partagée.
+- **Fonctionnalités avancées** :
+  - **Soft Delete** : restaure blobs supprimés (1–365 j).
+  - **Blob Versioning** : nouvelle version automatique à chaque modif.
+  - **Snapshots** : capture manuelle d’un état.
+  - **Immutable Blob (WORM)** : Write Once, Read Many – conformité légale.
+  - **Lifecycle Management** : règles automatiques de tiering (Hot → Cool → Archive) et suppression.
+
+---
+
+## 2. Queue Storage
+- **Caractéristiques** :
+  - File simple, messages ≤ 64 KB.
+  - Nombre de messages quasi illimité.
+  - Delivery = **at-least-once** (jamais exactly-once).
+- **Visibility timeout** :
+  - Message lu devient invisible pendant X secondes.
+  - Si traitement OK → `DeleteMessage`.
+  - Si échec ou timeout → message réapparaît.
+- **Poison queue** :
+  - Après N échecs (par défaut 5), message déplacé dans `nom-queue-poison`.
+- **Différences avec Service Bus Queue** :
+  - Pas de FIFO stricte (≈ ordre mais non garanti).
+  - Pas de sessions, transactions, DLQ évolués.
+  - Pas de topics/pub-sub.
+
+---
+
+## 3. Table Storage
+- **Nature** : base NoSQL clé-valeur, sans schéma fixe.
+- **Structure** :
+  - Table → Entités → propriétés.
+  - Clé primaire = `(PartitionKey + RowKey)`.
+- **Transactions** :
+  - Possible uniquement **dans une même partition**.
+  - Pas de transactions multi-partitions.
+- **Scénarios** :
+  - Données simples, lookup rapide par ID, grande scalabilité.
+  - Pas de relations complexes ni de jointures.
+- **Comparaison Cosmos DB (Table API)** :
+  - Cosmos DB offre SLA, réplication multi-région, indexation automatique, transactions avancées.
+
+---
+
+## 4. Sécurité et accès
+- **Shared Key** : accès complet au compte (⚠️ à éviter).
+- **SAS (Shared Access Signature)** :
+  - **Service SAS** : accès limité à une ressource (blob, queue, table).
+  - **Account SAS** : accès multi-services du compte.
+  - **User Delegation SAS** : SAS signée via Azure AD → sans clé partagée (sécurité moderne).
+- **Azure AD / RBAC** : recommandé pour accès applicatif sécurisé.
+
+---
+
+## 5. Points d’examen à retenir
+- Blob :
+  - Block = fichiers, Append = logs, Page = disques.
+  - Soft Delete = récup après suppression, Versioning = historique, Snapshots = backup ponctuel, Immutable = WORM.
+- Queue :
+  - Messages 64 KB, poison queue, at-least-once delivery, visibility timeout.
+- Table :
+  - Clé = PartitionKey + RowKey, batch = même partition.
+- SAS :
+  - Service SAS = ressource précise.
+  - Account SAS = multi-services.
+  - User Delegation SAS = via Azure AD (sécurité moderne).
+
+
