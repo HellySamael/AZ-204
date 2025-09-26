@@ -105,3 +105,72 @@
 - [Introduction à Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction)
 - [Choisir une clé de partition](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview#choose-your-partition-key)
 
+
+# Récapitulatif – Azure Cosmos DB (AZ-204)
+
+## 1. Structure
+- **Compte** Cosmos DB → multi-régions.
+- **Database** → contient des containers.
+- **Container** → unité de scalabilité (partitions).
+- **Item** = document JSON (SQL API).
+- **Clé unique** d’un item = `(PartitionKey + id)`.
+- **Partition physique** ≤ 50 Go.
+
+---
+
+## 2. Provisionnement & RUs
+- **RUs (Request Units)** = monnaie Cosmos DB (CPU + mémoire + I/O).
+- Lecture 1 Ko ≈ 1 RU, écriture ≈ 5 RUs.
+- Modes :
+  - **Provisioned throughput** (min 400 RUs/s).
+  - **Autoscale** (10 % à 100 % d’un plafond).
+  - **Serverless** (≤ 50 Go, facturation à la consommation).
+
+---
+
+## 3. Niveaux de consistance (5)
+1. **Strong** → lecture = dernière écriture (latence ↑, dispo limitée en multi-région).
+2. **Bounded staleness** → retard max (opérations ou durée).
+3. **Session** → par défaut, chaque client voit ses propres écritures immédiatement.
+4. **Consistent prefix** → respect de l’ordre, pas forcément la fraîcheur.
+5. **Eventual** → convergence finale, plus rapide/moins cher.
+
+---
+
+## 4. Indexation
+- Indexation **automatique** de toutes les propriétés.
+- **Indexing policy** → inclure/exclure des champs pour réduire coûts.
+- **Index composite** → accélère `ORDER BY` sur plusieurs champs.
+- ⚠️ Requêtes **cross-partitions** = coût RU ↑.
+
+---
+
+## 5. Change Feed
+- Liste ordonnée d’inserts/updates.
+- Pas de deletes sauf soft-delete flag.
+- Intégration → **Azure Functions trigger**, **Stream Analytics**, **Databricks**.
+- Cas d’usage → sync bases, analytics temps réel, ETL.
+
+---
+
+## 6. Sécurité
+- Authentification : **clé de compte** (⚠️ trop large), **Azure AD RBAC** (recommandé), **SAS token**.
+- Réseau : firewall IP, Private Endpoint.
+- Chiffrement : par défaut + option CMK via Key Vault.
+
+---
+
+## 7. Multi-région & réplication
+- **Multi-region write** (écriture partout) ou **single-region write**.
+- **Failover** automatique ou manuel (priorité configurable).
+- Impact consistance :
+  - **Strong** → seulement ≤ 2 régions proches.
+  - **Session** → par défaut, recommandé globalement.
+  - Autres niveaux → compatibles multi-régions.
+
+---
+
+## 8. Limites
+- Taille max item (SQL API) : **2 MB**.
+- Partition physique : **50 Go max**.
+
