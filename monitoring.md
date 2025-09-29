@@ -67,7 +67,7 @@ Surveiller et diagnostiquer les applications Azure.
 
 ---
 
-## 4. Points d’examen à retenir
+## 2. Points d’examen à retenir
 - **Azure Monitor** = metrics/logs de toutes les ressources.
 - **App Insights** = monitoring applicatif (exceptions, dépendances, tracing).
 - **Diagnostic Settings** = envoyer logs vers Log Analytics/Event Hub/Storage.
