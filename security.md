@@ -33,3 +33,41 @@ Gestion de l'identité et de l'accès dans Azure.
 - [Azure Active Directory pour les développeurs](https://learn.microsoft.com/azure/active-directory/develop/)
 - [Identités managées pour ressources Azure](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 - [Contrôle d'accès basé sur les rôles](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
+
+# Récapitulatif – Identity (AZ-204)
+
+
+---
+
+## 1. Identity & Security
+
+### Azure AD (Entra ID)
+- Service d’identité → **authentification** (qui ?) et **autorisation** (quoi ?).
+- Protocoles : **OAuth2**, **OpenID Connect (OIDC)**.
+- Gestion des accès via **RBAC** (Owner, Contributor, Reader, rôles custom).
+
+### Managed Identities
+- Identité automatique pour une ressource Azure.
+- Pas de secrets dans le code.
+- Types :
+  - **System-assigned** → supprimée avec la ressource.
+  - **User-assigned** → réutilisable par plusieurs ressources.
+- Exemple : Function + rôle `Key Vault Secrets User` → accès à Key Vault.
+
+### Azure RBAC
+- Rôles :
+  - **Reader** → lecture seule.
+  - **Contributor** → création/modification, pas de gestion RBAC.
+  - **Owner** → tout + gestion des accès.
+  - **Storage Blob Data Reader** → lecture seule sur blobs.
+
+### OAuth2 / JWT
+- Sécurisation des APIs avec Azure AD.
+- APIM → **policy `validate-jwt`** pour vérifier les tokens.
+
+---
+
+## 2. Points d’examen à retenir
+- **Managed Identity** = accès sécurisé sans secret.
+- **RBAC** = Owner/Contributor/Reader + rôles spécifiques.
