@@ -28,7 +28,7 @@ Surveiller et diagnostiquer les applications Azure.
 - [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 
 
-# Récapitulatif – Monitoring / Deployment / Identity (AZ-204)
+# Récapitulatif – Monitoring (AZ-204)
 
 ## 1. Monitoring
 
