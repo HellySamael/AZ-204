@@ -98,7 +98,68 @@ New-AzKeyVault -Name ... -EnableSoftDelete -EnablePurgeProtection
   4. Créer rotation policy, générer alertes.
 - Explorer les SDK : .NET, Python, Java, etc.
 - Consulter les guides GitHub comme arvigeus/AZ-204 Key Vault.
+  
 
 ## 📚 Resources
 - [Présentation d’Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)
 - [Tutoriel Key Vault avec Azure CLI](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli)
+
+# Récapitulatif – Key Vault & App Configuration (AZ-204)
+
+## 1. Azure Key Vault
+
+### Rôle
+- Stocker et gérer :
+  - **Secrets** (mots de passe, chaînes de connexion…)
+  - **Clés** (RSA, HSM)
+  - **Certificats** (TLS/SSL)
+- Centralisation pour éviter les secrets hardcodés dans le code.
+
+### Accès
+- Authentification via **Azure AD**.
+- Accès typiquement avec une **Managed Identity** (App Service, Function, ACA…).
+- Contrôlé par **RBAC / Access Policies**.
+
+### Fonctionnalités avancées
+- **Private Endpoint** → accès privé (pas d’expo publique).
+- **Rotation automatique** des secrets/certificats.
+- **Intégration Event Grid** → déclenchement de Function/Logic App à la modif d’un secret.
+- **Audit complet** via Azure Monitor.
+
+### Cas d’usage
+- Stocker une chaîne de connexion SQL.
+- Renouveler automatiquement un certificat TLS pour App Service.
+- Sécuriser l’accès à un secret avec une Managed Identity.
+
+---
+
+## 2. Azure App Configuration
+
+### Rôle
+- Centraliser les **paramètres applicatifs**.
+- Séparer la config du code pour faciliter les déploiements.
+- Supporte **Feature Flags** (activer/désactiver des fonctionnalités).
+
+### Accès
+- Authentification via **Azure AD / Managed Identity**.
+- Peut **référencer un secret Key Vault**.
+
+### Fonctionnalités avancées
+- **Labels** → gérer plusieurs environnements (dev/test/prod).
+- **Feature Flags** → progressive rollout, A/B testing.
+- **Intégration CI/CD** → pipelines DevOps ou GitHub Actions.
+
+### Cas d’usage
+- Stocker la couleur d’un thème UI (non sensible).
+- Centraliser les paramètres d’une appli multi-environnements.
+- Activer une nouvelle fonctionnalité sans redéploiement.
+
+---
+
+## 3. Points d’examen à retenir
+- **Key Vault** = secrets, clés, certificats sensibles.
+- **App Config** = paramètres applicatifs + feature flags.
+- **Managed Identity** = accès sécurisé sans secret.
+- **Labels** (App Config) = gérer plusieurs environnements.
+- **Feature Flags** (App Config) = activer/désactiver des fonctionnalités.
+- Combo gagnante : **Key Vault pour secrets sensibles** + **App Config pour paramètres/flags**.
