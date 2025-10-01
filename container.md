@@ -38,3 +38,64 @@ Services pour exécuter des conteneurs dans Azure.
 - [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/)
 - [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/)
 - [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/)
+
+
+# Récapitulatif – Containers (ACR, ACI, ACA) (AZ-204)
+
+## 1. Azure Container Registry (ACR)
+- **Registry privé** pour images Docker/OCI.
+- **Authentification** :
+  - Admin user (⚠️ pas recommandé en prod).
+  - Service principal (Azure AD app).
+  - **Managed identity / Azure AD** (recommandé).
+- **Fonctionnalités** :
+  - **ACR Tasks** → builds automatisés (commit Git, timer, dépendances).
+  - **Geo-replication** (Premium) → distribuer les images dans plusieurs régions.
+- **SKUs** :
+  - Basic → usage léger.
+  - Standard → plus de throughput.
+  - Premium → geo-replication, fonctionnalités avancées.
+
+---
+
+## 2. Azure Container Instances (ACI)
+- Exécution **serverless** de conteneurs sans orchestrateur.
+- Cas d’usage :
+  - **Batch jobs ponctuels**.
+  - Tester rapidement une image.
+  - Complément AKS via **Virtual Kubelet** (burst capacity).
+- Limitations :
+  - Pas de scaling avancé.
+  - Pas d’orchestration complexe.
+  - Pas de stockage persistant natif (mais Azure Files possible).
+
+---
+
+## 3. Azure Container Apps (ACA)
+- Service **serverless** pour exécuter des applications conteneurisées.
+- Fonctionnalités clés :
+  - **Scale-to-zero** → zéro facturation sans trafic.
+  - **KEDA** (autoscaling basé sur événements, ex. messages Service Bus).
+  - **Revisions** → gestion de versions, déploiements blue/green, A/B testing.
+  - **Dapr** → simplifie les microservices (pub/sub, state, service discovery).
+- Cas d’usage :
+  - APIs REST containerisées.
+  - Microservices avec event-driven scaling.
+  - Déploiements progressifs (blue/green).
+
+---
+
+## 4. Comparaison rapide
+| Service | Rôle principal | Points forts | Limitations |
+|---------|---------------|--------------|-------------|
+| **ACR** | Registry d’images | Auth AD/MI, Tasks, Geo-replication | Ne fait pas tourner de conteneurs |
+| **ACI** | Exécution brute | Jobs ponctuels, test rapide | Pas de scaling complexe |
+| **ACA** | Apps serverless | Scale-to-zero, KEDA, Revisions, Dapr | Plus limité qu’AKS pour orchestration avancée |
+
+---
+
+## 5. Points d’examen à retenir
+- **ACR Tasks** = rebuild auto (Git, base image update).
+- **Geo-replication** = Premium SKU.
+- **ACI** = exécution ponctuelle, Virtual Kubelet pour burst.
+- **ACA** = scale-to-zero, KEDA (event-driven), Revisions (blue/green), Dapr (microservices).
